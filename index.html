@@ -30,7 +30,7 @@ const {useState,useMemo}=React;
 
 // ── GLP-1 DATA ──────────────────────────────────────────────────────────────
 const glpData=[
-  {company:"Eli Lilly",region:"MNC",drug:"Retatrutide",drugCN:"瑞他鲁肽",mechanism:"GLP-1R/GIPR/GCGR 三激动剂",modality:"注射（周制剂）",stage:"三期",indication:"肥胖/T2D/NASH",notes:"TRIUMPH 三期进行中；NDA 计划 2026 年底提交",partner:""},
+  {company:"Eli Lilly",region:"MNC",drug:"Retatrutide",drugCN:"瑞他鲁肽",mechanism:"GLP-1R/GIPR/GCGR 三激动剂",modality:"注射（周制剂）",stage:"三期",indication:"肥胖/T2D/NASH",notes:"TRIUMPH-4 三期已完成（NCT05931367，2025-11 入组 445 人）；NDA 计划 2026 年底提交",partner:""},
   {company:"Eli Lilly",region:"MNC",drug:"Eloralintide",drugCN:"依洛拉林肽",mechanism:"选择性 Amylin 受体激动剂",modality:"注射（周制剂）",stage:"二期→三期",indication:"肥胖",notes:"二期最高剂量 48 周减重 ~20%；三期计划 2026 年底启动",partner:""},
   {company:"Eli Lilly",region:"MNC",drug:"Macupatide + Eloralintide",drugCN:"马库帕肽+依洛拉林肽",mechanism:"GLP-1R 激动剂 + Amylin 联用",modality:"注射",stage:"二期",indication:"肥胖",notes:"2026 年 5 月新启动 2b 期（CWMM 主协议）",partner:""},
   {company:"Eli Lilly",region:"MNC",drug:"Bimagrumab",drugCN:"比马鲁单抗",mechanism:"Activin II 型受体单抗（保肌减脂）",modality:"注射（单抗）",stage:"二期",indication:"肥胖（肌肉保留）",notes:"T2D 亚组试验已终止；非糖尿病肥胖组仍在进行",partner:"前 Versanis"},
@@ -52,7 +52,7 @@ const glpData=[
   {company:"AstraZeneca / CSPC",region:"MNC",drug:"CSPC 月制剂管线（8 项）",drugCN:"石药月制剂管线",mechanism:"GLP-1/GIP/多机制月制剂平台",modality:"注射（月制剂）",stage:"临床前/一期",indication:"肥胖/T2D",notes:"2026 年 1 月 AZ 以 $18.5B 许可",partner:"石药集团"},
   {company:"Pfizer",region:"MNC",drug:"PF-07976016",drugCN:"PF-07976016",mechanism:"口服 GIPR 拮抗剂",modality:"口服",stage:"二期",indication:"肥胖",notes:"Danuglipron 及 PF-06954522 均已终止",partner:""},
   {company:"MSD / 翰森制药",region:"MNC",drug:"HS-10535",drugCN:"HS-10535",mechanism:"口服小分子 GLP-1R 激动剂",modality:"口服",stage:"临床前→一期",indication:"肥胖/T2D",notes:"2024 年 12 月 MSD 以最高 $20 亿许可引进",partner:"翰森制药"},
-  {company:"Boehringer / Zealand",region:"MNC",drug:"Survodutide",drugCN:"舒伏度肽",mechanism:"GLP-1R/胰高血糖素受体双激动剂",modality:"注射（周制剂）",stage:"三期",indication:"肥胖/MASH",notes:"SYNCHRONIZE-1 三期（76周）阳性；全数据 ADA 2026 发布",partner:"Zealand Pharma"},
+  {company:"Boehringer / Zealand",region:"MNC",drug:"Survodutide",drugCN:"舒伏度肽",mechanism:"GLP-1R/胰高血糖素受体双激动剂",modality:"注射（周制剂）",stage:"三期",indication:"肥胖/MASH",notes:"SYNCHRONIZE-1/CV 三期阳性；SYNCHRONIZE-JP 已完成（NCT06176365，2025-12）；全数据 ADA 2026 发布",partner:"Zealand Pharma"},
   {company:"Regeneron / 翰森制药",region:"MNC",drug:"HS-20094",drugCN:"HS-20094",mechanism:"GLP-1R/GIPR 双激动剂",modality:"注射（周制剂）",stage:"三期",indication:"肥胖/T2D",notes:"多项二期完成；2025 年 6 月 Regeneron $20 亿引进",partner:"翰森制药"},
   {company:"Viking Therapeutics",region:"Biotech",drug:"VK2735 SC",drugCN:"VK2735 注射",mechanism:"GLP-1R/GIPR 双激动剂",modality:"注射（周制剂）",stage:"三期",indication:"肥胖",notes:"VANQUISH 三期入组中",partner:""},
   {company:"Viking Therapeutics",region:"Biotech",drug:"VK2735 Oral",drugCN:"VK2735 口服",mechanism:"GLP-1R/GIPR 双激动剂",modality:"口服",stage:"二期→三期",indication:"肥胖",notes:"VENTURE-Oral 二期 13 周减重 12.2%；三期 2026-2027 启动",partner:""},
@@ -121,7 +121,7 @@ const top50Data=[
   {rank:49,drug:"Itepekimab",drugCN:"伊特培单抗",company:"Sanofi / Regeneron",area:"呼吸",subtype:"单抗",mechanism:"IL-33 单抗",stage:"三期",peakSales:"$2B+",timeline:"2026-2033",notes:"哮喘/COPD；IL-33 上游炎症靶点"},
   {rank:50,drug:"mRNA-4157/V940",drugCN:"个性化癌症 mRNA 疫苗",company:"Moderna / Merck",area:"肿瘤",subtype:"mRNA 疫苗",mechanism:"个性化 mRNA 新抗原疫苗",stage:"三期",peakSales:"$3B+",timeline:"2026-2035",notes:"黑色素瘤/NSCLC；与 Keytruda 联用；三期启动"},
   // ── 肿瘤扩展（51-90）──────────────────────────────────────────────────────
-  {rank:51,drug:"Orforglipron",drugCN:"奥福格列普（口服GLP-1）",company:"Eli Lilly",area:"代谢",subtype:"口服小分子GLP-1",mechanism:"口服非肽类GLP-1R激动剂",stage:"已上市/审评",peakSales:"$5B+",timeline:"2026-2034",notes:"首个获批口服非肽类GLP-1RA；肥胖和T2D已完成6项三期；2025年底申报"},
+  {rank:51,drug:"Orforglipron",drugCN:"奥福格列普（口服GLP-1）",company:"Eli Lilly",area:"代谢",subtype:"口服小分子GLP-1",mechanism:"口服非肽类GLP-1R激动剂",stage:"已上市/审评",peakSales:"$5B+",timeline:"2026-2034",notes:"首个口服非肽类GLP-1RA；肥胖和T2D已完成6项三期；青少年三期招募中（NCT06672939，预计2027-12出数据）；2025年底申报"},
   {rank:52,drug:"Vepdegestrant",drugCN:"维普地司坦（PROTAC）",company:"Pfizer / Arvinas",area:"肿瘤",subtype:"PROTAC降解剂",mechanism:"口服ER靶向蛋白降解剂（PROTAC）",stage:"三期",peakSales:"$2B+",timeline:"2026-2033",notes:"ER+/HER2-乳腺癌；首个进入三期的PROTAC品种；2025年早期数据阳性"},
   {rank:53,drug:"Aficamten (CK-274)",drugCN:"阿非卡门坦",company:"Cytokinetics",area:"心血管",subtype:"心肌素抑制剂",mechanism:"心肌肌球蛋白选择性抑制剂",stage:"已上市",peakSales:"$2B+",timeline:"2024-2032",notes:"肥厚型心肌病（HCM）；2025年获FDA批准；与mavacamten差异化竞争"},
   {rank:54,drug:"Elranatamab (Elrexfio)",drugCN:"艾拉那他单抗",company:"Pfizer",area:"肿瘤",subtype:"双特异性抗体",mechanism:"BCMA×CD3双特异性抗体",stage:"已上市",peakSales:"$2B+",timeline:"2023-2032",notes:"多发性骨髓瘤；FDA已加速批准；早期线三期入组中"},
