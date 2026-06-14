@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GLP-1 在研管线汇总（Phase 3 及以前，未上市）</title>
+<style>
+  :root {
+    --bg: #f5f7fa;
+    --card-bg: #ffffff;
+    --text: #1a1a1a;
+    --text-secondary: #555;
+    --border: #e0e4e8;
+    --accent: #2563eb;
+    --accent-light: #eff6ff;
+    --phase3: #059669;
+    --phase3-bg: #ecfdf5;
+    --phase2: #d97706;
+    --phase2-bg: #fffbeb;
+    --phase1: #7c3aed;
+    --phase1-bg: #f5f3ff;
+    --preclinical: #6b7280;
+    --preclinical-bg: #f9fafb;
+    --approved: #0891b2;
+    --discontinued: #dc2626;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 20px;
+  }
+  .container { max-width: 1400px; margin: 0 auto; }
+  h1 {
+    text-align: center;
+    font-size: 28px;
+    margin: 24px 0 8px;
+    color: #0f172a;
+  }
+  .subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 32px;
+  }
+  .section {
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.06);
+    margin-bottom: 24px;
+    overflow: hidden;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 20px;
+    font-size: 18px;
+    font-weight: 700;
+    border-bottom: 1px solid var(--border);
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .badge-p3 { background: var(--phase3-bg); color: var(--phase3); }
+  .badge-p2 { background: var(--phase2-bg); color: var(--phase2); }
+  .badge-p1 { background: var(--phase1-bg); color: var(--phase1); }
+  .badge-pre { background: var(--preclinical-bg); color: var(--preclinical); }
+  .badge-app { background: #e0f2fe; color: var(--approved); }
+  .badge-disc { background: #fef2f2; color: var(--discontinued); }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  thead th {
+    background: #f8fafc;
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+    color: var(--text-secondary);
+    border-bottom: 2px solid var(--border);
+    position: sticky;
+    top: 0;
+    white-space: nowrap;
+  }
+  tbody td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #f1f3f5;
+    vertical-align: top;
+  }
+  tbody tr:hover { background: #fafbfc; }
+  .drug-name { font-weight: 600; color: var(--accent); white-space: nowrap; }
+  .drug-code { font-size: 11px; color: var(--text-secondary); display: block; margin-top: 1px; }
+  .company { font-weight: 500; }
+  .country-tag { font-size: 10px; padding: 1px 6px; border-radius: 10px; background: #f1f5f9; color: #64748b; margin-left: 4px; white-space: nowrap; }
+  .mechanism { font-size: 12px; line-height: 1.4; }
+  .route { text-align: center; font-size: 12px; white-space: nowrap; }
+  .notes { font-size: 11px; color: var(--text-secondary); max-width: 280px; }
+  
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .summary-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 16px 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.06);
+    text-align: center;
+  }
+  .summary-card .num {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--accent);
+  }
+  .summary-card .label {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+  }
+  
+  .footer {
+    text-align: center;
+    color: #94a3b8;
+    font-size: 12px;
+    margin: 32px 0 16px;
+  }
+  
+  @media (max-width: 768px) {
+    body { padding: 12px; }
+    h1 { font-size: 22px; }
+    table { font-size: 11px; }
+    thead th, tbody td { padding: 6px 8px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>GLP-1 受体激动剂 / 多靶点在研管线汇总</h1>
+<p class="subtitle">国际主流药企 + 中国 Biotech · Phase 3 及以前未上市品种 · 更新至 2026 年 6 月</p>
+
+<!-- Summary -->
+<div class="summary-grid">
+  <div class="summary-card"><div class="num">5</div><div class="label">Phase 3 在研</div></div>
+  <div class="summary-card"><div class="num">12</div><div class="label">Phase 2 在研</div></div>
+  <div class="summary-card"><div class="num">12</div><div class="label">Phase 1 在研</div></div>
+  <div class="summary-card"><div class="num">10+</div><div class="label">中国临床前企业</div></div>
+</div>
+
+<!-- Phase 3 -->
+<div class="section">
+<div class="section-header"><span class="badge badge-p3">Phase 3</span> 注册性临床阶段</div>
+<table>
+<thead>
+<tr><th>药物名称</th><th>公司</th><th>靶点 / 机制</th><th>途径</th><th>适应症</th><th>备注</th></tr>
+</thead>
+<tbody>
+<tr>
+  <td><span class="drug-name">Retatrutide</span><span class="drug-code">LY-3437943</span></td>
+  <td><span class="company">Eli Lilly</span><span class="country-tag">🇺🇸</span></td>
+  <td class="mechanism">GLP-1 / GIP / GCGR 三靶激动</td>
+  <td class="route">皮下注射<br>周制剂</td>
+  <td>肥胖、T2DM、MASH、CKD</td>
+  <td class="notes">TRIUMPH 系列 III 期多适应症推进中</td>
+</tr>
+<tr>
+  <td><span class="drug-name">CagriSema</span><span class="drug-code">卡格列肽 + 司美格鲁肽</span></td>
+  <td><span class="company">Novo Nordisk</span><span class="country-tag">🇩🇰</span></td>
+  <td class="mechanism">GLP-1 + Amylin / Calcitonin 双靶</td>
+  <td class="route">皮下注射<br>周制剂</td>
+  <td>肥胖、T2DM</td>
+  <td class="notes">REDEFINE-1/-2 NEJM 2025 已公布，减重约 20%，预计近期申报上市</td>
+</tr>
+<tr>
+  <td><span class="drug-name">Survodutide</span><span class="drug-code">BI 456906</span></td>
+  <td><span class="company">Boehringer Ingelheim</span><span class="country-tag">🇩🇪</span></td>
+  <td class="mechanism">GLP-1 / GCGR 双靶激动</td>
+  <td class="route">皮下注射<br>周制剂</td>
+  <td>肥胖、MASH</td>
+  <td class="notes">MASH 和肥胖 III 期并行推进，F2-F3 纤维化数据积极</td>
+</tr>
+<tr>
+  <td><span class="drug-name">HRS-9531</span><span class="drug-code">—</span></td>
+  <td><span class="company">恒瑞医药</span><span class="country-tag">🇨🇳</span></td>
+  <td class="mechanism">GLP-1 / GIP 双靶激动</td>
+  <td class="route">皮下注射<br>周制剂</td>
+  <td>肥胖、T2DM</td>
+  <td class="notes">中国 III 期，多项注册试验进行中</td>
+</tr>
+<tr>
+  <td><span class="drug-name">GZR18</span><span class="drug-code">—</span></td>
+  <td><span class="company">甘李药业</span><span class="country-tag">🇨🇳</span></td>
+  <td class="mechanism">GLP-1 单靶激动</td>
+  <td class="route">皮下注射<br>周制剂</td>
+  <td>肥胖、T2DM</td>
+  <td class="notes">BWM-303 等 III 期进行中</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<!-- Phase 2 -->
+<div class="section">
+<div class="section-header"><span class="badge badge-p2">Phase 2</span> 概念验证 / 剂量探索阶段</div>
+<table>
+<thead>
+<tr><th>药物名称</th><th>公司</th><th>靶点 / 机制</th><th>途径</th><th>适应症</th><th>备注</th></tr>
+</thead>
+<tbody>
+<tr>
+  <td><span class="drug-name">Maridebart cafraglutide</span><span class="drug-code">AMG 133 / MariTide</span></td>
+  <td><span class="company">Amgen</span><span class="country-tag">🇺🇸</span></td>
+  <td class="mechanism">GLP-1R 激动 + GIPR 拮抗<br>(抗体-肽偶联)</td>
+  <td class="route">皮下注射<br>月制剂</td>
+  <td>肥胖</td>
+  <td class="notes">II 期数据积极，差异化长间隔给药，进 IIb/III</td>
+</tr>
+<tr>
+  <td><span class="drug-name">Pemvidutide</span><span class="drug-code">ALT-801</span></td>
+  <td><span class="company">Altimmune</span><span class="country-tag">🇺🇸</span></td>
+  <td class="mechanism">GLP-1 / GCGR 双靶激动</td>
+  <td class="route">皮下注射<br>周制剂</td>
+  <td>肥胖、MASH、AUD、ALD</td>
+  <td class="notes">MASH II 期读出，降 LDL-C，无需剂量滴定</td>
+</tr>
+<tr>
+  <td><span class="drug-name">VK2735</span><span class="drug-code">—</span></td>
+  <td><span class="company">Viking Therapeutics</span><span class="country-tag">🇺🇸</span></td>
+  <td class="mechanism">GLP-1 / GIP 双靶激动</td>
+  <td class="route">皮下注射<br>+ 口服</td>
+  <td>肥胖、T2DM</td>
+  <td class="notes">注射和口服双剂型 II 期并行开发</td>
+</tr>
+<tr>
+  <td><span class="drug-name">Aleniglipron</span><span class="drug-code">GSBR-1290</span></td>
+  <td><span class="company">Structure Therapeutics</span><span class="country-tag">🇺🇸</span></td>
+  <td class="mechanism">GLP-1 小分子</td>
+  <td class="route">口服</td>
+  <td>肥胖、T2DM</td>
+  <td class="notes">IIa 积极，非肽类口服 GLP-1，片剂 PK 桥接成功</td>
+</tr>
+<tr>
+  <td><span class="drug-name">Amycretin</span><span class="drug-code">NN 9487</span></td>
+  <td><span class="company">Novo Nordisk</span><span class="country-tag">🇩🇰</span></td>
+  <td class="mechanism">GLP-1 / Amylin 双靶共激动</td>
+  <td class="route">口服 + 皮下</td>
+  <td>肥胖</td>
+  <td class="notes">口服 12 周减重约 13%，注射 + 口服双轨推进</td>
+</tr>
+<tr>
+  <td><span class="drug-name">CT-388</span><span class="drug-code">—</span></td>
+  <td><span class="company">Roche / Genentech</span><span class="country-tag">🇨🇭</span></td>
+  <td class="mechanism">GLP-1 / GIP 偏向激动<br>(无 arrestin 偶联)</td>
+  <td class="route">皮下注射<br>周制剂</td>
+  <td>肥胖</td>
+  <td class="notes">收购 Carmot，罗氏减重管线核心资产，Ib/II 进行中</td>
+</tr>
+<tr>
+  <td><span class="drug-name">CT-868</span><span class="drug-code">RG-6641</span></td>
+  <td><span class="company">Roche / Genentech</span><span class="country-tag">🇨🇭</span></td>
+  <td class="mechanism">GLP-1 / GIP 偏向激动</td>
+  <td class="route">皮下注射</td>
+  <td>T2DM、肥胖</td>
+  <td class="notes">收购 Carmot 资产，II 期进行中</td>
+</tr>
+<tr>
+  <td><span class="drug-name">Cotadutide</span><span class="drug-code">MEDI-0382</span></td>
+  <td><span class="company">AstraZeneca</span><span class="country-tag">🇬🇧</span></td>
+  <td class="mechanism">GLP-1 / GCGR 双靶激动</td>
+  <td class="route">皮下注射</td>
+  <td>T2DM、肥胖</td>
+  <td class="notes">II 期（进度缓慢，优先级可能被 AZD9550 替代）</td>
+</tr>
+<tr>
+  <td><span class="drug-name">Dapiglutide</span><span class="drug-code">ZP 7570</span></td>
+  <td><span class="company">Zealand Pharma</span><span class="country-tag">🇩🇰</span></td>
+  <td class="mechanism">GLP-1 / GLP-2 双靶激动</td>
+  <td class="route">皮下注射<br>周制剂</td>
+  <td>短肠综合征、肥胖</td>
+  <td class="notes">差异化的 GLP-2 共靶点，肠道适应症</td>
+</tr>
+<tr>
+  <td><span class="drug-name">TG103</span><span class="drug-code">—</span></td>
+  <td><span class="company">石药集团</span><span class="country-tag">🇨🇳</span></td>
+  <td class="mechanism">GLP-1 Fc 融合蛋白</td>
+  <td class="route">皮下注射</td>
+  <td>T2DM、肥胖</td>
+  <td class="notes">中国 II 期</td>
+</tr>
+<tr>
+  <td><span class="drug-name">HEC88473</span><span class="drug-code">—</span></td>
+  <td><span class="company">东阳光药</span><span class="country-tag">🇨🇳</span></td>
+  <td class="mechanism">GLP-1 / FGF21 双靶激动</td>
+  <td class="route">皮下注射</td>
+  <td>T2DM、NASH</td>
+  <td class="notes">首创 GLP-1/FGF21 双靶，NASH 差异化</td>
+</tr>
+<tr>
+  <td><span class="drug-name">UBT-251</span><span class="drug-code">—</span></td>
+  <td><span class="company">联邦制药</span><span class="country-tag">🇨🇳</span></td>
+  <td class="mechanism">GLP-1 / GIP / GCGR 三靶激动</td>
+  <td class="route">皮下注射</td>
+  <td>肥胖</td>
+  <td class="notes">24 周体重下降约 19.7%，I/II 期</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<!-- Phase 1 -->
+<div class="section">
+<div class="section-header"><span class="badge badge-p1">Phase 1</span> 早期临床阶段</div>
+<table>
+<thead>
+<tr><th>药物名称</th><th>公司</th><th>靶点 / 机制</th><th>途径</th><th>适应症</th><th>备注</th></tr>
+</thead>
+<tbody>
+<tr>
+  <td><span class="drug-name">XW004</span><span class="drug-code">—</span></td>
+  <td><span class="company">先为达 Sciwind</span><span class="country-tag">🇨🇳</span></td>
+  <td class="mechanism">GLP-1 口服多肽</td>
+  <td class="route">口服</td>
+  <td>肥胖</td>
+  <td class="notes">口服多肽递送技术</td>
+</tr>
+<tr>
+  <td><span class="drug-name">XW014</span><span class="drug-code">—</span></td>
+  <td><span class="company">先为达 Sciwind</span><span class="country-tag">🇨🇳</span></td>
+  <td class="mechanism">GLP-1 小分子</td>
+  <td class="route">口服</td>
+  <td>肥胖</td>
+  <td class="notes">非肽类口服 GLP-1</td>
+</tr>
+<tr>
+  <td><span class="drug-name">AZD9550</span><span class="drug-code">—</span></td>
+  <td><span class="company">AstraZeneca</span><span class="country-tag">🇬🇧</span></td>
+  <td class="mechanism">GLP-1 / GCGR 双靶激动</td>
+  <td class="route">皮下注射</td>
+  <td>肥胖、MASH</td>
+  <td class="notes">AZ 新世代 GLP-1/GCGR 双靶，替代 cotadutide</td>
+</tr>
+<tr>
+  <td><span class="drug-name">RGT-075</span><span class="drug-code">—</span></td>
+  <td><span class="company">Regor / Lilly</span><span class="country-tag">🇺🇸</span></td>
+  <td class="mechanism">GLP-1 小分子</td>
+  <td class="route">口服</td>
+  <td>肥胖、T2DM</td>
+  <td class="notes">与 Lilly 合作开发的口服 GLP-1</td>
+</tr>
+<tr>
+  <td><span class="drug-name">PF-07081532</span><span class="drug-code">—</span></td>
+  <td><span class="company">Pfizer</span><span class="country-tag">🇺🇸</span></td>
+  <td class="mechanism">GLP-1 小分子（二代）</td>
+  <td class="route">口服</td>
+  <td>肥胖、T2DM</td>
+  <td class="notes">danuglipron / lotiglipron 终止后的后续分子</td>
+</tr>
+<tr>
+  <td><span class="drug-name">SCO-094</span><span class="drug-code">—</span></td>
+  <td><span class="company">Scohia Pharma</span><span class="country-tag">🇯🇵</span></td>
+  <td class="mechanism">GLP-1 / GIP 双靶激动</td>
+  <td class="route">皮下注射</td>
+  <td>T2DM、肥胖</td>
+  <td class="notes">日本企业，I 期</td>
+</tr>
+<tr>
+  <td><span class="drug-name">NN-9541</span><span class="drug-code">—</span></td>
+  <td><span class="company">Novo Nordisk</span><span class="country-tag">🇩🇰</span></td>
+  <td class="mechanism">GLP-1 / GIP 双靶口服</td>
+  <td class="route">口服</td>
+  <td>肥胖、T2DM</td>
+  <td class="notes">Novo 下一代口服双靶</td>
+</tr>
+<tr>
+  <td><span class="drug-name">HS-20094</span><span class="drug-code">—</span></td>
+  <td><span class="company">翰森制药</span><span class="country-tag">🇨🇳</span></td>
+  <td class="mechanism">GLP-1 / GIP 双靶激动</td>
+  <td class="route">皮下注射</td>
+  <td>肥胖、T2DM</td>
+  <td class="notes">中国 I/II 期</td>
+</tr>
+<tr>
+  <td><span class="drug-name">HDM-1002</span><span class="drug-code">—</span></td>
+  <td><span class="company">华东医药</span><span class="country-tag">🇨🇳</span></td>
+  <td class="mechanism">GLP-1 小分子</td>
+  <td class="route">口服</td>
+  <td>肥胖、T2DM</td>
+  <td class="notes">口服 GLP-1 I 期</td>
+</tr>
+<tr>
+  <td><span class="drug-name">SAL-0112</span><span class="drug-code">—</span></td>
+  <td><span class="company">信立泰</span><span class="country-tag">🇨🇳</span></td>
+  <td class="mechanism">GLP-1 小分子</td>
+  <td class="route">口服</td>
+  <td>T2DM、肥胖</td>
+  <td class="notes">口服 GLP-1 I 期</td>
+</tr>
+<tr>
+  <td><span class="drug-name">MWN-101</span><span class="drug-code">—</span></td>
+  <td><span class="company">民为生物</span><span class="country-tag">🇨🇳</span></td>
+  <td class="mechanism">GLP-1 / GIP / GCGR 三靶激动</td>
+  <td class="route">皮下注射</td>
+  <td>肥胖</td>
+  <td class="notes">中国三靶 I 期</td>
+</tr>
+<tr>
+  <td><span class="drug-name">CagriSema 口服</span><span class="drug-code">—</span></td>
+  <td><span class="company">Novo Nordisk</span><span class="country-tag">🇩🇰</span></td>
+  <td class="mechanism">GLP-1 + Amylin 口服</td>
+  <td class="route">口服</td>
+  <td>肥胖</td>
+  <td class="notes">口服版 CagriSema I 期探索</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<!-- Preclinical China -->
+<div class="section">
+<div class="section-header"><span class="badge badge-pre">临床前</span> 中国代表性企业（IND 申报 / 临床前阶段）</div>
+<table>
+<thead>
+<tr><th>企业</th><th>候选药物</th><th>靶点 / 机制</th><th>特点</th></tr>
+</thead>
+<tbody>
+<tr><td><span class="company">博瑞医药</span></td><td>BGM-0504</td><td>GLP-1 / GIP 双靶</td><td class="notes">2025 年 IND，进入临床</td></tr>
+<tr><td><span class="company">众生药业</span></td><td>RAY-1225</td><td>GLP-1 / GIP 双靶</td><td class="notes">临床前 / IND 阶段</td></tr>
+<tr><td><span class="company">齐鲁制药</span></td><td>QL-GLP-1 系列</td><td>GLP-1 生物类似药 + 改良</td><td class="notes">司美格鲁肽仿制 + 改良型管线</td></tr>
+<tr><td><span class="company">正大天晴</span></td><td>TQ-351</td><td>GLP-1 单靶</td><td class="notes">临床前推进中</td></tr>
+<tr><td><span class="company">凯因科技</span></td><td>KW-021</td><td>GLP-1 长效</td><td class="notes">长效融合蛋白</td></tr>
+<tr><td><span class="company">双鹭药业</span></td><td>SL-GLP-1</td><td>GLP-1 长效融合蛋白</td><td class="notes">临床前 / IND 准备</td></tr>
+<tr><td><span class="company">复星医药</span></td><td>多个改良型 GLP-1</td><td>GLP-1 长效 / 多靶</td><td class="notes">临床前管线储备</td></tr>
+<tr><td><span class="company">科伦药业</span></td><td>KL-GLP-1</td><td>GLP-1 生物类似药</td><td class="notes">临床前</td></tr>
+<tr><td><span class="company">通化东宝</span></td><td>TH-GLP-1 系列</td><td>GLP-1 类似药 + 改良</td><td class="notes">仿制 + 创新双线</td></tr>
+<tr><td><span class="company">四环医药</span></td><td>多肽 GLP-1 平台</td><td>GLP-1 / GIP 双靶</td><td class="notes">临床前平台建设</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- Approved recently -->
+<div class="section">
+<div class="section-header"><span class="badge badge-app">近期上市</span> 2025–2026 年新获批 GLP-1 产品（不纳入在研管线）</div>
+<table>
+<thead>
+<tr><th>药物</th><th>公司</th><th>靶点</th><th>批准时间</th><th>地区</th></tr>
+</thead>
+<tbody>
+<tr><td><span class="drug-name">Orforglipron</span> (Foundayo)</td><td>Eli Lilly</td><td>GLP-1 口服小分子</td><td>2026.04</td><td>美国 FDA</td></tr>
+<tr><td><span class="drug-name">Mazdutide</span> (IBI362)</td><td>信达生物 / Lilly</td><td>GLP-1 / GCGR 双靶</td><td>2025.06</td><td>中国 NMPA</td></tr>
+<tr><td><span class="drug-name">Ecnoglutide</span> (XW003)</td><td>先为达 Sciwind</td><td>GLP-1 周制剂</td><td>2026.01</td><td>中国 NMPA</td></tr>
+<tr><td><span class="drug-name">IcoSema</span> (Kyinsu)</td><td>Novo Nordisk</td><td>胰岛素 + GLP-1 复方</td><td>2025.11</td><td>EU EMA</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- Discontinued -->
+<div class="section">
+<div class="section-header"><span class="badge badge-disc">已终止</span> 代表性失败 / 放弃的管线</div>
+<table>
+<thead>
+<tr><th>药物</th><th>公司</th><th>终止原因</th><th>年份</th></tr>
+</thead>
+<tbody>
+<tr><td><span class="drug-name">Danuglipron</span></td><td>Pfizer</td><td class="notes">不可预测的肝毒性</td><td>2024</td></tr>
+<tr><td><span class="drug-name">Lotiglipron</span></td><td>Pfizer</td><td class="notes">肝酶升高，潜在肝毒性</td><td>2023</td></tr>
+<tr><td><span class="drug-name">Taspoglutide</span></td><td>Roche / Ipsen</td><td class="notes">严重超敏反应 + 胃肠道副作用</td><td>2010</td></tr>
+<tr><td><span class="drug-name">NNC9204-1706</span></td><td>Novo Nordisk</td><td class="notes">安全性不佳（三靶激动剂）</td><td>2022</td></tr>
+<tr><td><span class="drug-name">Efpeglenatide</span></td><td>Sanofi</td><td class="notes">战略调整 / 商业考量</td><td>2021</td></tr>
+</tbody>
+</table>
+</div>
+
+<p class="footer">
+数据来源：Wikipedia · ClinicalTrials.gov · 公司公告 · 行业公开报道<br>
+临床前中国管线基于公开信息披露，可能存在滞后，建议以各公司最新公告为准<br>
+整理日期：2026-06-13
+</p>
+
+</div>
+</body>
+</html>
